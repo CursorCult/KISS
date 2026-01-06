@@ -18,6 +18,37 @@ KISS means choosing the simplest design that solves the real problem. Complexity
 - Keep function length at or below 100 lines of code (NLOC <= 100).
 - Use `lizard` to measure complexity and function length.
 
+## Reference scripts
+
+```sh
+python .cursor/rules/KISS/scripts/generate.py --glob "src/**/*.py" --output complexity.json
+python .cursor/rules/KISS/scripts/validate.py complexity.json
+python .cursor/rules/KISS/scripts/evaluate.py --input complexity.json --ccn 10 --nloc 100 --file-nloc 500
+python .cursor/rules/KISS/scripts/check_complexity.py
+```
+
+KISS uses the `complexity` schema for its evidence:
+
+```json
+{
+  "schema": "complexity",
+  "files": {
+    "src/app.py": {
+      "nloc": 120,
+      "functions": [
+        {
+          "name": "run",
+          "ccn": 3,
+          "nloc": 40,
+          "start_line": 10,
+          "end_line": 60
+        }
+      ]
+    }
+  }
+}
+```
+
 ## Guidelines
 
 - Start with the smallest viable solution. Add complexity only when the simpler version fails.

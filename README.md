@@ -13,6 +13,41 @@ cursorcult link KISS
 
 Rule file format reference: https://cursor.com/docs/context/rules#rulemd-file-format
 
+**Programmatic evaluation (.CCKISS)**
+
+Create a `.CCKISS` at repo root with full command lines. Generators must include
+`--output`, and the evaluator must include `--input`. All generators must write
+to the same output file (typically `complexity.json`).
+
+Example:
+
+```text
+python .cursor/rules/KISS/scripts/generate.py --glob "src/**/*.py" --output complexity.json
+python .cursor/rules/KISS/scripts/evaluate.py --input complexity.json --ccn 10 --nloc 100 --file-nloc 500
+```
+
+The output schema is `complexity`:
+
+```json
+{
+  "schema": "complexity",
+  "files": {
+    "src/app.py": {
+      "nloc": 120,
+      "functions": [
+        {
+          "name": "run",
+          "ccn": 3,
+          "nloc": 40,
+          "start_line": 10,
+          "end_line": 60
+        }
+      ]
+    }
+  }
+}
+```
+
 **When to use**
 
 - You are tempted to add a framework, pattern, or layer to solve a small problem.
@@ -36,6 +71,9 @@ Rule file format reference: https://cursor.com/docs/context/rules#rulemd-file-fo
 **Reference scripts**
 
 ```sh
+python .cursor/rules/KISS/scripts/generate.py --glob "src/**/*.py" --output complexity.json
+python .cursor/rules/KISS/scripts/validate.py complexity.json
+python .cursor/rules/KISS/scripts/evaluate.py --input complexity.json --ccn 10 --nloc 100 --file-nloc 500
 python .cursor/rules/KISS/scripts/check_complexity.py
 ```
 
