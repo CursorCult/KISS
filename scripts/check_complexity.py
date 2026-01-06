@@ -28,9 +28,12 @@ def _find_violations(stdout: str) -> bool:
             continue
         if in_section and "====" in line:
             break
-        if in_section and line.strip() and not line.startswith(" "):
-            parts = line.split()
-            if len(parts) >= 5:
+        if in_section and line.strip():
+            stripped = line.strip()
+            if stripped.startswith("NLOC"):
+                continue
+            parts = stripped.split()
+            if len(parts) >= 4:
                 try:
                     int(parts[0])
                     int(parts[1])
