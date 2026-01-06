@@ -24,7 +24,6 @@ KISS means choosing the simplest design that solves the real problem. Complexity
 python .cursor/rules/KISS/scripts/generate.py --glob "src/**/*.py" --output complexity.json
 python .cursor/rules/KISS/scripts/validate.py complexity.json
 python .cursor/rules/KISS/scripts/evaluate.py --input complexity.json --ccn 10 --nloc 100 --file-nloc 500
-python .cursor/rules/KISS/scripts/check_complexity.py
 ```
 
 KISS uses the `complexity` schema for its evidence:

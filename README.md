@@ -74,7 +74,6 @@ The output schema is `complexity`:
 python .cursor/rules/KISS/scripts/generate.py --glob "src/**/*.py" --output complexity.json
 python .cursor/rules/KISS/scripts/validate.py complexity.json
 python .cursor/rules/KISS/scripts/evaluate.py --input complexity.json --ccn 10 --nloc 100 --file-nloc 500
-python .cursor/rules/KISS/scripts/check_complexity.py
 ```
 
 **Credits**
