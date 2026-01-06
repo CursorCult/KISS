@@ -1,0 +1,14 @@
+name: tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - t0
+  workflow_dispatch:
+
+jobs:
+  test:
+    uses: CursorCult/.github/.github/workflows/test-rule.yml@main
+    with:
+      python-version: "3.12"
