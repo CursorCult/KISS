@@ -25,6 +25,19 @@ Rule file format reference: https://cursor.com/docs/context/rules#rulemd-file-fo
 - Avoid abstraction until it earns its keep.
 - Reduce moving parts, not just lines of code.
 - Optimize for clarity and maintenance over cleverness.
+- Keep cyclomatic complexity per function at or below 10 (CCN <= 10).
+- Keep function length at or below 100 lines of code (NLOC <= 100).
+
+**Signals**
+
+- 🥖 means KISS is satisfied.
+- 🥨 means KISS is not satisfied.
+
+**Reference scripts**
+
+```sh
+python .cursor/rules/KISS/scripts/check_complexity.py
+```
 
 **Credits**
 

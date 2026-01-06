@@ -12,6 +12,12 @@ KISS means choosing the simplest design that solves the real problem. Complexity
 - 🥖 means KISS is satisfied.
 - 🥨 means KISS is not satisfied.
 
+## What it enforces
+
+- Keep cyclomatic complexity per function at or below 10 (CCN <= 10).
+- Keep function length at or below 100 lines of code (NLOC <= 100).
+- Use `lizard` to measure complexity and function length.
+
 ## Guidelines
 
 - Start with the smallest viable solution. Add complexity only when the simpler version fails.
