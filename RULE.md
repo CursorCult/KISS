@@ -7,6 +7,11 @@ alwaysApply: true
 
 KISS means choosing the simplest design that solves the real problem. Complexity is a tax: it slows understanding, increases defects, and raises the cost of change.
 
+## Signals
+
+- 🥖 means KISS is satisfied.
+- 🥨 means KISS is not satisfied.
+
 ## Guidelines
 
 - Start with the smallest viable solution. Add complexity only when the simpler version fails.
